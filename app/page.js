@@ -11,6 +11,7 @@ const Home = () => {
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [date, setDate] = useState("");
+  const [dateYY, setDateYY] = useState("");
   const [cvc, setCvc] = useState("");
 
   return (
@@ -56,7 +57,7 @@ const Home = () => {
                   {name}
                 </li>
                 <li className="text-white text-xs lg:text-xl tracking-widest">
-                  {date}
+                  {date}/{dateYY}
                 </li>
               </ul>
             </div>
@@ -113,16 +114,28 @@ const Home = () => {
                 <article className="flex items-center justify-between gap-8">
                   <div className="flex-1">
                     <label htmlFor="expiry_date">Exp. Date (MM/YY)</label>
-                    <input
-                      type="text"
-                      name="expiry_date"
-                      id="expiry_date"
-                      placeholder="00/00"
-                      required
-                      maxLength={5}
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                    />
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        name="expiry_date"
+                        id="expiry_date"
+                        placeholder="MM"
+                        required
+                        maxLength={2}
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                      />
+                      <input
+                        type="text"
+                        name="expiry_date"
+                        id="expiry_date"
+                        placeholder="YY"
+                        required
+                        maxLength={2}
+                        value={dateYY}
+                        onChange={(e) => setDateYY(e.target.value)}
+                      />
+                    </div>
                   </div>
 
                   <div className="flex-1">
@@ -160,7 +173,7 @@ function ThankYou({ setConfirmed }) {
   return (
     <>
       <div className="thank-you flex flex-col items-center justify-center lg:h-screen max-w-lg mx-auto">
-        <img src={tick} alt="" className="block mx-auto" />
+        <img src="icon-complete.svg" alt="" className="block mx-auto" />
         <h1 className="text-slate-800 text-3xl my-6 uppercase text-center">
           Thank you!
         </h1>
