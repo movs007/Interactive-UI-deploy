@@ -1,27 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: "Space Grotesk", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+main {
+  width: 100%;
+  height: 100vh;
+}
+
+.left-side picture source {
+  height: 100vh;
+}
+
+.main-container {
+  flex-direction: column;
+}
+
+.card-container {
+  flex-direction: column-reverse;
+}
+.front-card {
+  top: -75px;
+  margin-left: 18px;
+  height: 150px;
+  width: 69%;
+  border-radius: 10px;
+  z-index: 20;
+}
+
+.back-card {
+  left: 65px;
+  margin-top: 20px;
+  height: 150px;
+  width: 69%;
+  border-radius: 10px;
+}
+
+.back-card p {
+  top: 4.1rem;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form-container {
+  padding: 0 1.8rem;
+}
+form label {
+  @apply block uppercase tracking-wider text-slate-800 mb-2 text-sm;
+}
+
+form input {
+  @apply border border-slate-300 py-3 px-4 rounded-lg outline-none w-full;
+}
+
+.btn {
+  background-color: hsl(278, 68%, 11%);
+  @apply py-3 px-6 rounded-lg shadow text-white text-base tracking-wide lg:text-lg;
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+  }
+
+  .front-card,
+  .back-card {
+    top: 0;
+    height: 250px;
+    width: 450px;
+    border-radius: 20px;
+  }
+
+  .back-card p {
+    top: 7rem;
+  }
+
+  form,
+  .thank-you {
+    margin-top: 500px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (min-width: 1024px) {
+  .front-card,
+  .back-card {
+    position: relative;
+  }
+
+  .main-container {
+    height: 100vh;
+    align-items: center;
+  }
+
+  .front-card {
+  }
+
+  .back-card {
+    right: 0;
+  }
+
+  form,
+  .thank-you {
+    margin-top: 0;
+  }
 }
