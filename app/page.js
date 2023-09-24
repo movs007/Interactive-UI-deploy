@@ -49,15 +49,15 @@ const Home = () => {
 
             <div className="p-2 lg:p-4">
               <h2 className="text-white text-xl lg:text-2xl mb-2 lg:mb-6 tracking-widest">
-                {cardNumber}
+                {cardNumber === "" ? "0000 0000 0000 0000" : cardNumber}
               </h2>
 
               <ul className="flex items-center justify-between">
                 <li className="text-white uppercase text-xs lg:text-xl tracking-widest">
-                  {name}
+                  {name === "" ? "Jane Appleseed" : name}
                 </li>
                 <li className="text-white text-xs lg:text-xl tracking-widest">
-                  {date}/{dateYY}
+                  {date === "" ? "00" : date}/{dateYY === "" ? "00" : dateYY}
                 </li>
               </ul>
             </div>
@@ -73,7 +73,7 @@ const Home = () => {
               />
             </div>
             <p className="absolute right-10 text-sm lg:text-xl text-white tracking-widest">
-              {cvc}
+              {cvc === "" ? "123" : cvc}
             </p>
           </article>
         </div>
